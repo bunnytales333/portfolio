@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #111827;
+    color: #f3f4f6;
+  }
+  
+  section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.8s ease;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  /* Gradient Backgrounds for Each Section */
+  .intro {
+    background: linear-gradient(120deg, #1e3a8a, #2563eb);
+  }
+  
+  .about-me, .certifications, .projects, .contact {
+    background: linear-gradient(120deg, #111827, #0ea5e9);
+  }
+  
+  .content {
+    max-width: 800px;
+  }
+  
+  h1, h2 {
+    font-size: 3rem;
+    color: #f3f4f6;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: slideUp 1s ease forwards;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: slideUp 1.2s ease forwards;
+  }
+  
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 1rem;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+  }
+  
+  form input, form textarea, form button {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #1e3a8a;
+    color: #f3f4f6;
+  }
+  
+  form button {
+    background-color: #0ea5e9;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  form button:hover {
+    background-color: #2563eb;
+  }
+  
+  .active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Parallax Effect */
+  .about-me, .certifications, .projects, .contact {
+    background-attachment: fixed;
+  }
+  
+  /* Scroll and Fade Animations */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Section Reveal on Scroll */
+  section.active h2, 
+  section.active p, 
+  section.active img, 
+  section.active .content {
+    animation: slideUp 1.2s ease forwards;
+  }
+  
